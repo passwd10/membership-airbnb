@@ -1,12 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-<<<<<<< HEAD
-/* GET home page. */
-=======
->>>>>>> create-login-signup-pages
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', (req, res) => {
+  res.render('index', { isLogin: !!req.cookies.SID });
 });
 
 module.exports = router;

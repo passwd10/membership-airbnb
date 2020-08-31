@@ -1,9 +1,28 @@
-var express = require('express');
-var router = express.Router();
+const { validateUser, addSession, deleteSession } = require('../services/loginService');
 
-router.get('/', function(req, res, next) {
+const express = require('express');
+const router = express.Router();
+
+router.get('/', (req, res) => {
   res.render('login', { title: '로그인' });
 });
 
-module.exports = router;
+router.post('/', (req, res) => {
+  const { userId, userPassword } = req.body;
 
+  return validateUser(userId, userPassword) ?
+    res.cookie('SID', addSession(userId))
+      .status(200)
+      .render('index', { isLogin: true })
+    : res.status(404).send('로그인 실패');
+});
+
+router.delete('/', (req, res) => {
+  deleteSession(req.cookies.SID);
+
+  res.clearCookie('SID')
+    .status(200)
+    .render('index', { isLogin: false });
+});
+
+module.exports = router;
