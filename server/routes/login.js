@@ -1,12 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-<<<<<<< HEAD
-/* GET home page. */
-=======
->>>>>>> create-login-signup-pages
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('login', { title: '로그인' });
 });
 
 module.exports = router;
+
