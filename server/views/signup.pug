@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+   form(action='/signup' method='post')
+      div
+        | 아이디 
+        input(type="text" name="userId")
+      div
+        | 닉네임 
+        input(type="text" name="userNickname")
+      div
+        | 패스워드 
+        input(type="password" name="userPassword")
+      div
+        | 패스워드 확인 
+        input(type="password" name="userPasswordVerification")
+      div
+        input(type="submit" value="회원가입")
