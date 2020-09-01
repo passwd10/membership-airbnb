@@ -1,12 +1,1 @@
-{ "Users": 
-  [
-    {
-      "id": "test",
-      "password": "1234"
-    },
-    {
-      "id": "hello",
-      "password": "1234"
-    }
-  ]
-}
+{"Users":[{"id":"test","nickname":"test","password":"1234"},{"id":"hello","nickname":"hi","password":"1234"},{"id":"abc","nickname":"a","password":"1"},{"id":"123","nickname":"a123","password":"1"},{"id":"aaa","nickname":"aaa","password":"1"},{"id":"a1","nickname":"a1","password":"a"}]}

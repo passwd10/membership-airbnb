@@ -1,12 +1,17 @@
-const registeredUsers = require('../mocks/registeredUsers.json');
+const fs = require('fs');
 
 const Session = require('../utils/session');
 
 const session = new Session();
 
 const validateUser = (userId, userPassword) => {
-  const user = registeredUsers.Users.find(v => v.id === userId && v.password === userPassword);
+  const filePath = `${__dirname}/../mocks/registeredUsers.json`;
+  const users = fs.readFileSync(filePath, 'utf8', (err) => {
+    if (err) throw err;
+  });
 
+  const user = JSON.parse(users).Users.find(v => v.id === userId && v.password === userPassword);
+  console.log('user', user);
   return !!user;
 };
 
