@@ -1,1 +1,1 @@
-{"Users":[{"id":"test","nickname":"test","password":"1234"},{"id":"hello","nickname":"hi","password":"1234"},{"id":"abc","nickname":"a","password":"1"},{"id":"123","nickname":"a123","password":"1"},{"id":"aaa","nickname":"aaa","password":"1"},{"id":"a1","nickname":"a1","password":"a"}]}
+{"Users":[{"email":"a@naver.com","name":"박인서","password":"15e4c17538cbbc282452faeb521e2283d60d940ac6a455869c987b60ada4da17"}]}

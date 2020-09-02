@@ -1,7 +1,14 @@
 extends layout
 
+block header
+  title= title
+  link(rel='stylesheet', href='/stylesheets/style.css')
+
 block content
   h1= "HOME"
+  include loginModal.pug
+  include signupModal.pug
+
   if isLogin 
     div
       span 로그인중입니다
@@ -9,8 +16,17 @@ block content
         button 로그아웃
   else
     div
-      a(href="/login")
-        button(type="button") 로그인
-    div
-      a(href="/signup")
-        button(type="button") 회원가입
+      button(type="button" class="loginBtn") 로그인
+      button(type="button" class="signupBtn") 회원가입
+
+  script.
+    const loginBtn = document.querySelector('.loginBtn');   
+    const signupBtn = document.querySelector('.signupBtn');
+
+    loginBtn.addEventListener('click', () => {
+      loginModal.classList.remove("hidden");
+    })
+
+    signupBtn.addEventListener('click', () => {
+      signupModal.classList.remove("hidden");
+    })

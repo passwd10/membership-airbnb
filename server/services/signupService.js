@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 const registeredUsers = require('../mocks/registeredUsers.json');
+const encrypt = require('../utils/encrypt');
 
 const validate = (category) => (userInfo) => {
   if(registeredUsers.Users.find(v => v[category] === userInfo)) {
@@ -13,12 +14,12 @@ const validatePassword = (userPassword, userPasswordVerification) => {
   return userPassword === userPasswordVerification;
 };
 
-const signUpUser = (userId, userNickname, userPassword) => {
+const signUpUser = (userEmail, userName, userPassword) => {
   const filePath = `${__dirname}/../mocks/registeredUsers.json`;
   const userInfo = {
-    "id": userId,
-    "nickname": userNickname,
-    "password": userPassword
+    "email": userEmail,
+    "name": userName,
+    "password": encrypt(userPassword)
   };
 
   fs.readFile(filePath, 'utf8', (err, data) => {

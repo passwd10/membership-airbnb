@@ -1,0 +1,31 @@
+div(class="signupModal hidden")
+  div(class="signupModal__overlay")
+  div(class="signupModal__content")
+    h1="회원가입"
+    form(action="/signup" method="POST")
+      div
+        | 이메일
+        input(type="text" name="userEmail" placeholder="이메일 주소")
+      div
+        | 이름
+        input(type="text" name="userName" placeholder="이름(예: 김부캠)")
+      div
+        | 패스워드
+        input(type="password" name="userPassword" minlength="6")
+      div
+        | 패스워드 확인 
+        input(type="password" name="userPasswordVerification"   minlength="6")
+      div
+        input(type="submit" value="회원가입 완료")
+        button(type="button" class="signupCloseBtn") 취소
+script.
+  const signupModal = document.querySelector('.signupModal');
+  const signupOverlay = document.querySelector('.signupModal__overlay');
+  const signupCloseBtn = document.querySelector('.signupCloseBtn');
+
+  signupOverlay.addEventListener('click', () => {
+    signupModal.classList.add("hidden");
+  })
+  signupCloseBtn.addEventListener('click', () => {
+    signupModal.classList.add("hidden");
+  })
