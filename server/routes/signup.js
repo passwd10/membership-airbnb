@@ -8,23 +8,19 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const { userId, userNickname, userPassword, userPasswordVerification } = req.body;
+  const { userEmail, userName, userPassword, userPasswordVerification } = req.body;
 
-  const isValidateId = validate('id')(userId);
-  const isValidateNickname = validate('nickname')(userNickname);
+  const isValidateEmail = validate('email')(userEmail);
   const isValidatePassword = validatePassword(userPassword, userPasswordVerification);
 
-  if (!isValidateId) {
+  if (!isValidateEmail) {
     return res.status(404).send('존재하는 아이디입니다');
-  }
-  if (!isValidateNickname) {
-    return res.status(404).send('존재하는 닉네임입니다.');
   }
   if (!isValidatePassword) {
     return res.status(404).send('비밀번호가 일치하지 않습니다.');
   }
 
-  signUpUser(userId, userNickname, userPassword);
+  signUpUser(userEmail, userName, userPassword);
   return res.status(200).render('index', { isLogin: false });
 });
 

@@ -13,11 +13,11 @@ const validatePassword = (userPassword, userPasswordVerification) => {
   return userPassword === userPasswordVerification;
 };
 
-const signUpUser = (userId, userNickname, userPassword) => {
+const signUpUser = (userEmail, userName, userPassword) => {
   const filePath = `${__dirname}/../mocks/registeredUsers.json`;
   const userInfo = {
-    "id": userId,
-    "nickname": userNickname,
+    "email": userEmail,
+    "name": userName,
     "password": userPassword
   };
 
