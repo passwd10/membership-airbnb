@@ -1,12 +1,14 @@
 const fs = require('fs');
 
+const encrypt = require('../utils/encrypt');
+
 const validateUser = (userEmail, userPassword) => {
   const filePath = `${__dirname}/../mocks/registeredUsers.json`;
   const users = fs.readFileSync(filePath, 'utf8', (err) => {
     if (err) throw err;
   });
 
-  const user = JSON.parse(users).Users.find(v => v.email === userEmail && v.password === userPassword);
+  const user = JSON.parse(users).Users.find(v => v.email === userEmail && v.password === encrypt(userPassword));
   return !!user;
 };
 
