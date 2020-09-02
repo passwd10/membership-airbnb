@@ -8,10 +8,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const { userId, userPassword } = req.body;
-
-  return validateUser(userId, userPassword) ?
-  res.cookie('SID', addSession(req.session, userId))
+  const { userEmail, userPassword } = req.body;
+  console.log('들어옴', userEmail)
+  return validateUser(userEmail, userPassword) ?
+  res.cookie('SID', addSession(req.session, userEmail))
     .status(200)
     .render('index', { isLogin: true })
   : res.status(404).send('로그인 실패');
