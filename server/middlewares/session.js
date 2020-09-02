@@ -1,4 +1,4 @@
-const Session = class Session{
+class Session {
   constructor() {
     this.sessionTable = new Map();
   }
@@ -9,7 +9,7 @@ const Session = class Session{
     return sessionId;
   }
 
-  deleteSession (sessionId) {
+  deleteSession(sessionId) {
     return this.sessionTable.delete(sessionId);
   }
 
@@ -30,9 +30,16 @@ const Session = class Session{
   }
 
   showSessionTable() {
-    console.log('sessionTable : ',this.sessionTable);
+    console.log('sessionTable : ', this.sessionTable);
     return;
   }
+}
+
+const session = new Session();
+
+const checkSession = (req, res, next) => {
+  req.session = session;
+  next();
 };
 
-module.exports = Session;
+module.exports = checkSession;
