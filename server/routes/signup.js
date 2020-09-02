@@ -3,10 +3,6 @@ const router = express.Router();
 
 const { validate, validatePassword, signUpUser } = require('../services/signupService');
 
-router.get('/', (req, res) => {
-  res.render('signup', { title: '회원가입' });
-});
-
 router.post('/', (req, res) => {
   const { userEmail, userName, userPassword, userPasswordVerification } = req.body;
 

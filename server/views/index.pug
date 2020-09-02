@@ -6,41 +6,8 @@ block header
 
 block content
   h1= "HOME"
-  div(class="loginModal hidden")
-    div(class="loginModal__overlay")
-    div(class="loginModal__content")
-      h1="로그인"
-      form(action="/login" method="POST")
-        div
-          | 이메일
-          input(type="text" name="userEmail")
-        div
-          | 패스워드 
-          input(type="password" name="userPassword")
-        div
-          input(type="submit" value="로그인")
-          button(type="button" class="loginCloseBtn") 취소
-
-  div(class="signupModal hidden")
-    div(class="signupModal__overlay")
-    div(class="signupModal__content")
-      h1="회원가입"
-      form(action="/signup" method="POST")
-        div
-          | 이메일
-          input(type="text" name="userEmail" placeholder="이메일 주소")
-        div
-          | 이름
-          input(type="text" name="userName" placeholder="이름(예: 김부캠)")
-        div
-          | 패스워드
-          input(type="password" name="userPassword" minlength="6")
-        div
-          | 패스워드 확인 
-          input(type="password" name="userPasswordVerification"   minlength="6")
-        div
-          input(type="submit" value="회원가입 완료")
-          button(type="button" class="signupCloseBtn") 취소
+  include loginModal.pug
+  include signupModal.pug
 
   if isLogin 
     div
@@ -54,36 +21,12 @@ block content
 
   script.
     const loginBtn = document.querySelector('.loginBtn');   
-    const loginModal = document.querySelector('.loginModal');
-    const loginOverlay = document.querySelector('.loginModal__overlay');
-    const loginCloseBtn = document.querySelector('.loginCloseBtn');
-
     const signupBtn = document.querySelector('.signupBtn');
-    const signupModal = document.querySelector('.signupModal');
-    const signupOverlay = document.querySelector('.signupModal__overlay');
-    const signupCloseBtn = document.querySelector('.signupCloseBtn');
-
 
     loginBtn.addEventListener('click', () => {
       loginModal.classList.remove("hidden");
     })
 
-    loginOverlay.addEventListener('click', () => {
-      loginModal.classList.add("hidden");
-    })
-
     signupBtn.addEventListener('click', () => {
       signupModal.classList.remove("hidden");
-    })
-
-    signupOverlay.addEventListener('click', () => {
-      signupModal.classList.add("hidden");
-    })
-
-    loginCloseBtn.addEventListener('click', () => {
-      loginModal.classList.add("hidden");
-    })
-
-    signupCloseBtn.addEventListener('click', () => {
-      signupModal.classList.add("hidden");
     })

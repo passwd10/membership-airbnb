@@ -3,10 +3,6 @@ const { validateUser, addSession, deleteSession } = require('../services/loginSe
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.render('login', { title: '로그인' });
-});
-
 router.post('/', (req, res) => {
   const { userEmail, userPassword } = req.body;
   console.log('들어옴', userEmail)
