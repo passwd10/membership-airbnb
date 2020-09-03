@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const { validate, validatePassword, signUpUser } = require('../services/signupService');
+const { addSession } = require('../services/loginService');
 
 router.post('/', (req, res) => {
   const { userEmail, userName, userPassword, userPasswordVerification } = req.body;
@@ -17,9 +18,11 @@ router.post('/', (req, res) => {
   }
 
   signUpUser(userEmail, userName, userPassword);
-  return res.status(200).render('index', { isLogin: false });
+  
+  return res.cookie('SID', addSession(req.session, userEmail))
+    .status(200)
+    .render('index', { isLogin: true });
 });
 
 
 module.exports = router;
-
