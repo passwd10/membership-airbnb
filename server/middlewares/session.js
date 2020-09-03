@@ -1,20 +1,23 @@
 class Session {
   constructor() {
-    this.sessionTable = new Map();
+    this.sessionStorage = new Map();
   }
 
-  addSession(expireTime, userId) {
+  addSession(userId) {
+    const date = new Date();
     const sessionId = this.createSessionId();
-    this.sessionTable.set(sessionId, { expireTime: expireTime, userId: userId });
+    
+    date.setMonth(date.getMonth() + 1);
+    this.sessionStorage.set(sessionId, { expireTime: date, userId: userId });
     return sessionId;
   }
 
   deleteSession(sessionId) {
-    return this.sessionTable.delete(sessionId);
+    return this.sessionStorage.delete(sessionId);
   }
 
   getSession(sessionId) {
-    return this.sessionTable.get(sessionId);
+    return this.sessionStorage.get(sessionId);
   }
 
   createSessionId() {
@@ -29,17 +32,36 @@ class Session {
     return sessionId;
   }
 
-  showSessionTable() {
-    console.log('sessionTable : ', this.sessionTable);
-    return;
+  showSessionStorage() {
+    console.log('sessionStorage : ', this.sessionStorage);
+    return; 
+  }
+
+  checkSession(sessionId) {
+    const session = this.sessionStorage.get(sessionId);
+
+    if (!session) {
+      return false;
+    }
+
+    if (session.expireTime <= Date.now()) {
+      this.deleteSession(sessionId);
+      return false;
+    }
+
+    return true;
   }
 }
 
 const session = new Session();
 
-const checkSession = (req, res, next) => {
+const sessionMiddleware = (req, res, next) => {
   req.session = session;
+  console.log('check', session.checkSession(req.cookies.SID));
+  if (!session.checkSession(req.cookies.SID)) {
+    res.clearCookie('SID');
+  }
   next();
 };
 
-module.exports = checkSession;
+module.exports = sessionMiddleware;

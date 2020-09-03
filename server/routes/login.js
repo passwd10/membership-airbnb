@@ -1,7 +1,7 @@
-const { validateUser, addSession, deleteSession } = require('../services/loginService');
-
 const express = require('express');
 const router = express.Router();
+
+const { validateUser, addSession, deleteSession } = require('../services/loginService');
 
 router.post('/', (req, res) => {
   const { userEmail, userPassword } = req.body;

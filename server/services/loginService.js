@@ -14,9 +14,7 @@ const validateUser = (userEmail, userPassword) => {
 
 const addSession = (session, userEmail) => {
   try {
-    const date = new Date();
-    date.setFullYear(date.getFullYear() + 1);
-    return session.addSession(date.toDateString(), userEmail);
+    return session.addSession(userEmail);
   } catch {
     return console.log('Session을 추가할 수 없습니다');
   }
