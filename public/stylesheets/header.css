@@ -49,8 +49,41 @@ header {
 .sign_modal {
   display: flex;
   flex-direction: column;
+  border: 1px solid #DDDDDD;
+  border-radius: 20px;
+  width: 230px;
+  box-shadow: 3px 3px 15px rgb(170, 170, 170);
+  padding: 10px 0;
+}
+
+.sign_modal > li{
+  list-style: none;
+  padding: 8px 20px;
+  margin: 2px 0;
+}
+
+.sign_modal > li:hover{
+  background-color: #DDDDDD;
 }
 
 .hidden {
   display: none;
+}
+
+#login_list {
+  cursor: pointer;
+}
+
+#signup_list {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#logout_button {
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
 }

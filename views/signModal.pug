@@ -1,17 +1,18 @@
-div(class="sign_modal hidden")
+ul(class="sign_modal hidden")
   if isLogin
-    div
-      span 로그인중입니다
+    li
       form(action="/login?_method=DELETE" method="post")
-        button 로그아웃
+        button(type="submit" id="logout_button") 로그아웃
   else
-    div
-      button(type="button" class="loginBtn") 로그인
-      button(type="button" class="signupBtn") 회원가입
+    li(id="signup_list") 회원가입
+    li(id="login_list") 로그인
+  li 숙소 호스트되기
+  li 체험 호스팅하기
+  li 도움말
 
 script.
-  const loginBtn = document.querySelector('.loginBtn');   
-  const signupBtn = document.querySelector('.signupBtn');
+  const loginBtn = document.querySelector('#login_list');   
+  const signupBtn = document.querySelector('#signup_list');
   
   loginBtn.addEventListener('click', () => {
     loginModal.classList.remove("hidden");
