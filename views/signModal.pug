@@ -1,19 +1,22 @@
-if isLogin 
-  div
-    span 로그인중입니다
-    form(action="/login?_method=DELETE" method="post")
-      button 로그아웃
-else
-  div
-    button(type="button" class="loginBtn") 로그인
-    button(type="button" class="signupBtn") 회원가입
+div(class="sign_modal hidden")
+  if isLogin
+    div
+      span 로그인중입니다
+      form(action="/login?_method=DELETE" method="post")
+        button 로그아웃
+  else
+    div
+      button(type="button" class="loginBtn") 로그인
+      button(type="button" class="signupBtn") 회원가입
 
 script.
   const loginBtn = document.querySelector('.loginBtn');   
   const signupBtn = document.querySelector('.signupBtn');
-   loginBtn.addEventListener('click', () => {
+  
+  loginBtn.addEventListener('click', () => {
     loginModal.classList.remove("hidden");
   })
+  
   signupBtn.addEventListener('click', () => {
     signupModal.classList.remove("hidden");
   })

@@ -13,3 +13,11 @@ header
     img(src='../images/profile.svg' id='profile')
 
   include signModal.pug
+
+  script.
+    const toggleMenu = document.querySelector('.toggle_menu');
+    const signModal = document.querySelector('.sign_modal');
+
+    toggleMenu.addEventListener('click', () => {
+      signModal.classList.remove("hidden");
+    })

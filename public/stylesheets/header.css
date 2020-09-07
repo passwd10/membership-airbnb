@@ -45,3 +45,12 @@ header {
 .head_menu > ul > li{
   list-style: none;
 }
+
+.sign_modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
