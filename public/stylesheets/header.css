@@ -1,5 +1,11 @@
 header {
-  padding: 30px 150px;
+  display: flex;
+  padding: 40px 200px;
+  justify-content: space-between;
+}
+
+#airbnb_logo {
+  height: 34px;
 }
 
 .toggle_menu {
@@ -10,6 +16,7 @@ header {
   border-radius: 30px;
   padding: 3px;
   background: white;
+  float: right;
 }
 
 .toggle_menu:hover {
@@ -23,4 +30,18 @@ header {
 
 .toggle_menu > #profile {
   width: 30px;
+}
+
+.head_menu {
+  width: 200px;
+}
+
+.head_menu > ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.head_menu > ul > li{
+  list-style: none;
 }
