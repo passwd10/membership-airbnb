@@ -57,7 +57,7 @@ const session = new Session();
 
 const sessionMiddleware = (req, res, next) => {
   req.session = session;
-  console.log('check', session.checkSession(req.cookies.SID));
+
   if (!session.checkSession(req.cookies.SID)) {
     res.clearCookie('SID');
   }
