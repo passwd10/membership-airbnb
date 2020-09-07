@@ -7,7 +7,6 @@ const methodOverride = require('method-override');
 const session = require('./middlewares/session');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
 const signupRouter = require('./routes/signup');
 
@@ -25,7 +24,6 @@ app.use(methodOverride('_method'));
 app.use(session);
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 
