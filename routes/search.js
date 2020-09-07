@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 
   const rooms = searchRooms(place);
 
-  return res.render('searchResult', { result: rooms });
+  return res.render('searchResult', { rooms: rooms });
 });
 
 module.exports = router;

@@ -8,6 +8,7 @@ block content
   h1= "HOME"
   include loginModal.pug
   include signupModal.pug
+  include searchBar.pug
 
   if isLogin 
     div
@@ -19,22 +20,11 @@ block content
       button(type="button" class="loginBtn") 로그인
       button(type="button" class="signupBtn") 회원가입
 
-  section
-    input(type="text" id="search_input")
-    button(type="button" id="search_button") 검색
   
   script.
     const loginBtn = document.querySelector('.loginBtn');   
     const signupBtn = document.querySelector('.signupBtn');
-    const searchInput = document.querySelector('#search_input');
-    const searchButton = document.querySelector('#search_button');
-
-    searchButton.addEventListener('click', () => {
-      fetch(`/search?place=${searchInput.value}`).then(res => {
-        console.log(res)
-      })
-    })
-
+  
     loginBtn.addEventListener('click', () => {
       loginModal.classList.remove("hidden");
     })
