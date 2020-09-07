@@ -1,0 +1,89 @@
+header {
+  display: flex;
+  padding: 40px 200px;
+  justify-content: space-between;
+}
+
+#airbnb_logo {
+  height: 34px;
+}
+
+.toggle_menu {
+  display: flex;
+  height: 100%;
+  width: 70px;
+  border: 1px solid #DDDDDD;
+  border-radius: 30px;
+  padding: 3px;
+  background: white;
+  float: right;
+}
+
+.toggle_menu:hover {
+  box-shadow: 3px 3px 5px rgb(170, 170, 170);
+}
+
+.toggle_menu > #burger_menu {
+  width: 16px;
+  margin: 0 10px;
+}
+
+.toggle_menu > #profile {
+  width: 30px;
+}
+
+.head_menu {
+  width: 200px;
+}
+
+.head_menu > ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.head_menu > ul > li{
+  list-style: none;
+}
+
+.sign_modal {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #DDDDDD;
+  border-radius: 20px;
+  width: 230px;
+  box-shadow: 3px 3px 15px rgb(170, 170, 170);
+  padding: 10px 0;
+}
+
+.sign_modal > li{
+  list-style: none;
+  padding: 8px 20px;
+  margin: 2px 0;
+}
+
+.sign_modal > li:hover{
+  background-color: #DDDDDD;
+}
+
+.hidden {
+  display: none;
+}
+
+#login_list {
+  cursor: pointer;
+}
+
+#signup_list {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#logout_button {
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+}

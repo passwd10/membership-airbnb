@@ -1,0 +1,24 @@
+link(rel='stylesheet', href='/stylesheets/header.css')
+header
+  img(src='../images/airbnb-logo.svg' id='airbnb_logo')
+
+  nav(class="head_menu")
+    ul
+      li 숙소
+      li 체험
+      li 온라인 체험
+ 
+  span(class="toggle_menu")
+    img(src='../images/burger-menu.svg' id='burger_menu')
+    img(src='../images/profile.svg' id='profile')
+
+  include signModal.pug
+
+  script.
+    const toggleMenu = document.querySelector('.toggle_menu');
+    const signModal = document.querySelector('.sign_modal');
+
+    toggleMenu.addEventListener('click', () => {
+      signModal.classList.remove("hidden");
+      console.log(signModal.getBoundingClientRect())
+    })

@@ -1,0 +1,16 @@
+extends layout
+
+block header
+  title= title
+  link(rel='stylesheet', href='/stylesheets/style.css')
+
+block content
+  h1= "검색결과"
+  ul
+    each room in rooms
+      li
+        h3= room.title
+        div= room.description1
+        div= room.description2
+        div= room.price
+        img(src=room.image)
