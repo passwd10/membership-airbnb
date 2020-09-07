@@ -9,6 +9,7 @@ const session = require('./middlewares/session');
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const signupRouter = require('./routes/signup');
+const searchRouter = require('./routes/search');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(session);
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
+app.use('/search', searchRouter);
 
 app.use((req, res, next) => {
   next(createError(404));

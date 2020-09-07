@@ -20,13 +20,20 @@ block content
       button(type="button" class="signupBtn") 회원가입
 
   section
-    form(action="")
-      input(type="text" name="search")
-      button(type="submit") 검색
+    input(type="text" id="search_input")
+    button(type="button" id="search_button") 검색
   
   script.
     const loginBtn = document.querySelector('.loginBtn');   
     const signupBtn = document.querySelector('.signupBtn');
+    const searchInput = document.querySelector('#search_input');
+    const searchButton = document.querySelector('#search_button');
+
+    searchButton.addEventListener('click', () => {
+      fetch(`/search?place=${searchInput.value}`).then(res => {
+        console.log(res)
+      })
+    })
 
     loginBtn.addEventListener('click', () => {
       loginModal.classList.remove("hidden");
