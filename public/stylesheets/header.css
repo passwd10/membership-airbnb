@@ -1,0 +1,26 @@
+header {
+  padding: 30px 150px;
+}
+
+.toggle_menu {
+  display: flex;
+  height: 100%;
+  width: 70px;
+  border: 1px solid #DDDDDD;
+  border-radius: 30px;
+  padding: 3px;
+  background: white;
+}
+
+.toggle_menu:hover {
+  box-shadow: 3px 3px 5px rgb(170, 170, 170);
+}
+
+.toggle_menu > #burger_menu {
+  width: 16px;
+  margin: 0 10px;
+}
+
+.toggle_menu > #profile {
+  width: 30px;
+}
