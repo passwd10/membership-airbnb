@@ -17,9 +17,15 @@ script.
   const loginModal = document.querySelector('.loginModal');
   const loginOverlay = document.querySelector('.loginModal__overlay');
   const loginCloseBtn = document.querySelector('.loginCloseBtn');
+  
+  loginModal.addEventListener('click', (e) => {
+    e.stopPropagation();
+  })
+
   loginOverlay.addEventListener('click', () => {
     loginModal.classList.add("hidden");
   })
+  
   loginCloseBtn.addEventListener('click', () => {
     loginModal.classList.add("hidden");
   })

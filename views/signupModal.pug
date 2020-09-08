@@ -23,9 +23,14 @@ script.
   const signupOverlay = document.querySelector('.signupModal__overlay');
   const signupCloseBtn = document.querySelector('.signupCloseBtn');
 
+  signupModal.addEventListener('click', (e) => {
+    e.stopPropagation();
+  })
+
   signupOverlay.addEventListener('click', () => {
     signupModal.classList.add("hidden");
   })
+
   signupCloseBtn.addEventListener('click', () => {
     signupModal.classList.add("hidden");
   })
