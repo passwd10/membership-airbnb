@@ -68,3 +68,24 @@
 .hidden {
   display: none;
 }
+
+.formInput {
+  width: 450px;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 4px;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.formButton {
+  width: 490px;
+  padding: 10px 20px;
+  margin: 4px;
+  color: white;
+  background: #FF5A5F;
+  border: 0px;
+  border-radius: 5px;
+  font-size: 18px;
+}
