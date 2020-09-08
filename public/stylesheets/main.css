@@ -1,0 +1,23 @@
+#main_banner {  
+  padding: 20px 200px;
+}
+
+#main_banner > img {
+  border-radius: 20px;
+  width: 1500px;
+}
+
+#second_banners > ul{
+  padding: 0px 200px;
+  display: flex;
+}
+
+#second_banners > ul > li{
+  list-style: none;
+}
+
+#second_banners > ul > li > img{
+  border-radius: 20px;
+  width: 490px;
+  margin: 5px;
+}

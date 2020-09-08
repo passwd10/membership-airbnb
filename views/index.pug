@@ -3,7 +3,18 @@ extends layout
 block header
   title= title
   link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel='stylesheet', href='/stylesheets/main.css')
 
 block content
-  h1= "HOME"
   include searchBar.pug
+  section(id='main_banner')
+    img(src='../images/airbnb-main.jpg')
+  
+  section(id='second_banners')
+    ul
+      li
+        img(src='https://a0.muscache.com/im/pictures/eb9c7c6a-ee33-414a-b1ba-14e8860d59b3.jpg?im_w=720')
+      li
+        img(src='https://a0.muscache.com/im/pictures/15159c9c-9cf1-400e-b809-4e13f286fa38.jpg?im_w=720')
+      li
+        img(src='https://a0.muscache.com/im/pictures/fdb46962-10c1-45fc-a228-d0b055411448.jpg?im_w=720')
