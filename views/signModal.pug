@@ -9,16 +9,23 @@ ul(class="sign_modal hidden")
   li 숙소 호스트되기
   li 체험 호스팅하기
   li 도움말
+  include loginModal.pug
+  include signupModal.pug
 
 script.
   const loginBtn = document.querySelector('#login_list');   
   const signupBtn = document.querySelector('#signup_list');
   
-  loginBtn.addEventListener('click', () => {
-    loginModal.classList.remove("hidden");
-  })
+  if (loginBtn) {
+    loginBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+     loginModal.classList.remove("hidden");
+    })
+  }
   
-  signupBtn.addEventListener('click', () => {
-    signupModal.classList.remove("hidden");
-  })
-  
+  if (signupBtn) {
+    signupBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      signupModal.classList.remove("hidden");
+    })
+  }
