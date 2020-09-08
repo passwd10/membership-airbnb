@@ -1,24 +1,32 @@
 link(rel='stylesheet', href='/stylesheets/header.css')
 header
-  img(src='../images/airbnb-logo.svg' id='airbnb_logo')
+  section
+    a(href="/")
+      img(src='../images/airbnb-logo.svg' id='airbnb_logo' alt='airbnb_logo')
 
-  nav(class="head_menu")
-    ul
-      li 숙소
-      li 체험
-      li 온라인 체험
- 
-  span(class="toggle_menu")
-    img(src='../images/burger-menu.svg' id='burger_menu')
-    img(src='../images/profile.svg' id='profile')
-
-  include signModal.pug
+    nav(class="head_menu")
+      ul
+        li 숙소
+        li 체험
+        li 온라인 체험
+    span(class="toggle_menu" name="toggle_menu")
+      img(src='../images/burger-menu.svg' id='burger_menu' alt='burger_menu')
+      img(src='../images/profile.svg' id='profile' alt='profile')
+    include signModal.pug
+  section(id='search_section')
+    include searchBar.pug
 
   script.
     const toggleMenu = document.querySelector('.toggle_menu');
     const signModal = document.querySelector('.sign_modal');
 
-    toggleMenu.addEventListener('click', () => {
+    toggleMenu.addEventListener('click', (event) => {
+      event.stopPropagation();
       signModal.classList.remove("hidden");
-      console.log(signModal.getBoundingClientRect())
+    })
+    
+    window.addEventListener('click', (event) => {
+      if (!signModal.classList.contains('hidden')) {
+        signModal.classList.add("hidden");
+      }
     })

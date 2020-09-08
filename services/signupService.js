@@ -17,19 +17,19 @@ const validatePassword = (userPassword, userPasswordVerification) => {
 const signUpUser = (userEmail, userName, userPassword) => {
   const filePath = `${__dirname}/../mocks/registeredUsers.json`;
   const userInfo = {
-    "email": userEmail,
-    "name": userName,
-    "password": encrypt(userPassword)
+    'email': userEmail,
+    'name': userName,
+    'password': encrypt(userPassword),
   };
 
   fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) throw err;
+    if (err) { throw err; }
     const users = JSON.parse(data);
     users.Users.push(userInfo);
     const result = JSON.stringify(users);
-    
+
     fs.writeFile(filePath, result, 'utf8', (err) => {
-      if (err) throw err;
+      if (err) { throw err; }
     });
   });
 };

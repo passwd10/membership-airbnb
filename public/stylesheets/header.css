@@ -1,7 +1,15 @@
 header {
+  width: 100%;
+  position: fixed;
   display: flex;
-  padding: 40px 200px;
-  justify-content: space-between;
+  flex-direction: column;
+  background: white;
+}
+
+header > section {
+  padding: 0 200px;
+  display: flex;
+  justify-content: space-between;  
 }
 
 #airbnb_logo {
@@ -47,7 +55,12 @@ header {
 }
 
 .sign_modal {
+  position: absolute;
+  z-index: 1;
+  top: 90px;
+  right: 200px;
   display: flex;
+  background: white;
   flex-direction: column;
   border: 1px solid #DDDDDD;
   border-radius: 20px;

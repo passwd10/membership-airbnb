@@ -6,7 +6,7 @@ class Session {
   addSession(userId) {
     const date = new Date();
     const sessionId = this.createSessionId();
-    
+
     date.setMonth(date.getMonth() + 1);
     this.sessionStorage.set(sessionId, { expireTime: date, userId: userId });
     return sessionId;
@@ -21,7 +21,7 @@ class Session {
   }
 
   createSessionId() {
-    const possible = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+    const possible = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz';
     const sessionIdlength = 20;
     let sessionId = '';
 
@@ -34,7 +34,7 @@ class Session {
 
   showSessionStorage() {
     console.log('sessionStorage : ', this.sessionStorage);
-    return; 
+    return;
   }
 
   checkSession(sessionId) {

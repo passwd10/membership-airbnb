@@ -1,0 +1,32 @@
+footer {
+  background-color: #F8F8FF;
+}
+
+footer > nav {
+  padding: 10px 220px;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer > nav > section {
+  display: flex;
+  flex-direction: column;
+}
+
+footer > nav > section > ul > li {
+  font-weight: normal;
+  list-style: none;
+  margin: 0 0 20px 0;
+  font-size: 14px;
+}
+
+footer > section{
+  padding: 10px 220px;
+  text-align: center;
+}
+
+footer > section > p {
+  border-top: 1px solid black;
+  font-size: 14px;
+  padding: 10px 0;
+}

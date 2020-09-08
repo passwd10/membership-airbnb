@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "eslint": "./node_modules/.bin/eslint *.js"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "lint": "eslint --fix *.js ."
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

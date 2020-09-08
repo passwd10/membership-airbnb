@@ -1,4 +1,17 @@
-section
-    form(action=`/search?${place}` method='get')
-      input(type="text" name="place")
-      button(type="submit" id="search_button") 검색
+link(rel='stylesheet', href='/stylesheets/searchBar.css')
+form(action=`/search?${place}` method='get' id='search_form')
+  div(class='searchContent place')
+    h5 위치
+    input(type="text" name="place" placeholder="어디로 여행가세요?")
+  div(class='searchContent checkin')
+    h5 체크인
+    span 날짜 추가
+  div(class='searchContent checkout')
+    h5 체크아웃
+    span 날짜 추가
+  div(class='searchContent personnel')
+    h5 인원
+    span 게스트 추가
+  div
+    button(type="submit" id='search_button')
+      img(src='../images/find.svg')

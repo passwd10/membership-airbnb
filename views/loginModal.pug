@@ -3,24 +3,18 @@ div(class="loginModal hidden")
   div(class="loginModal__content")
     h1="로그인"
     form(action="/login" method="POST")
-      div
-        | 이메일
-        input(type="text" name="userEmail")
-      div
-        | 패스워드 
-        input(type="password" name="userPassword")
-      div
-        input(type="submit" value="로그인")
-        button(type="button" class="loginCloseBtn") 취소
+      input(type="text" class="formInput login_userEmail" name="userEmail" placeholder="이메일")
+      input(type="password" class="formInput login_userPassword" name="userPassword" placeholder="비밀번호")
+      input(type="submit" class="formButton login" value="로그인")
 
 script.
   const loginModal = document.querySelector('.loginModal');
   const loginOverlay = document.querySelector('.loginModal__overlay');
-  const loginCloseBtn = document.querySelector('.loginCloseBtn');
+  
+  loginModal.addEventListener('click', (e) => {
+    e.stopPropagation();
+  })
+
   loginOverlay.addEventListener('click', () => {
     loginModal.classList.add("hidden");
   })
-  loginCloseBtn.addEventListener('click', () => {
-    loginModal.classList.add("hidden");
-  })
-  
