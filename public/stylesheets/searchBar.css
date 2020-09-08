@@ -17,16 +17,21 @@
 #search_button {
   background-color: #FF385C;
   padding: 10px;
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
+  border: none;
   border-radius: 50%;
   margin-right: 10px;
+  cursor: pointer;
+}
+
+#search_button:focus {
+  outline: none;
 }
 
 #search_button > img{
   width: 15px;
-  padding: 5px;
-  cursor: pointer;
+  padding: 3px;
 }
 
 .searchContent {
