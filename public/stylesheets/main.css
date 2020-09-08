@@ -1,10 +1,17 @@
 #main_banner {  
   padding: 20px 200px;
+  cursor: pointer;
 }
 
 #main_banner > img {
   border-radius: 20px;
   width: 1500px;
+}
+
+#main_banner_text {
+  position: absolute;
+  top: 290px;
+  left: 276px;
 }
 
 #second_banners > ul{
@@ -14,10 +21,38 @@
 
 #second_banners > ul > li{
   list-style: none;
+  margin-bottom: 30px;
 }
 
 #second_banners > ul > li > img{
-  border-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   width: 490px;
-  margin: 5px;
+  margin: 5px 5px 0 5px;
+  border-top: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+}
+
+.second_banner_text {
+  z-index: 1;
+  padding: 20px 0 20px 20px;
+  margin-top: -22px;
+  width: 470px;
+  margin: -24px 5px 0 5px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+}
+
+.second_banner_text > h2 {
+  font-size: 18px;
+  line-height: 22px;  
+}
+
+.second_banner_text > p {
+  font-size: 14px;
+  line-height: 18px;
 }
