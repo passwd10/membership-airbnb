@@ -1,7 +1,12 @@
 header {
   display: flex;
+  flex-direction: column;
   padding: 40px 200px;
-  justify-content: space-between;
+}
+
+header > section {
+  display: flex;
+  justify-content: space-between;  
 }
 
 #airbnb_logo {
