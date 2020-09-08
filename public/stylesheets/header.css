@@ -47,7 +47,12 @@ header {
 }
 
 .sign_modal {
+  position: absolute;
+  z-index: 1;
+  top: 90px;
+  right: 200px;
   display: flex;
+  background: white;
   flex-direction: column;
   border: 1px solid #DDDDDD;
   border-radius: 20px;
