@@ -1,10 +1,13 @@
 header {
+  width: 100%;
+  position: fixed;
   display: flex;
   flex-direction: column;
-  padding: 20px 200px;
+  background: white;
 }
 
 header > section {
+  padding: 0 200px;
   display: flex;
   justify-content: space-between;  
 }
