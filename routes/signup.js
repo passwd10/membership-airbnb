@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
   }
 
   signUpUser(userEmail, userName, userPassword);
-  
+
   return res.cookie('SID', addSession(req.session, userEmail))
     .status(200)
     .render('index', { isLogin: true });
