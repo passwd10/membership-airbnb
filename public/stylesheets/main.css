@@ -1,11 +1,11 @@
 #main_banner {  
   padding: 20px 200px;
-  cursor: pointer;
 }
 
 #main_banner > img {
   border-radius: 20px;
   width: 1500px;
+  cursor: pointer;
 }
 
 #main_banner_text {
