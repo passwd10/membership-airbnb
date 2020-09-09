@@ -6,15 +6,3 @@ div(class="loginModal hidden")
       input(type="text" class="formInput login_userEmail" name="userEmail" placeholder="이메일")
       input(type="password" class="formInput login_userPassword" name="userPassword" placeholder="비밀번호")
       input(type="submit" class="formButton login" value="로그인")
-
-script.
-  const loginModal = document.querySelector('.loginModal');
-  const loginOverlay = document.querySelector('.loginModal__overlay');
-  
-  loginModal.addEventListener('click', (e) => {
-    e.stopPropagation();
-  })
-
-  loginOverlay.addEventListener('click', () => {
-    loginModal.classList.add("hidden");
-  })

@@ -4,7 +4,7 @@ header
     a(href="/")
       img(src='../images/airbnb-logo.svg' id='airbnb_logo' alt='airbnb_logo')
 
-    nav(class="head_menu")
+    nav(class="header_menu")
       ul
         li 숙소
         li 체험
@@ -15,18 +15,3 @@ header
     include signModal.pug
   section(id='search_section')
     include searchBar.pug
-
-  script.
-    const toggleMenu = document.querySelector('.toggle_menu');
-    const signModal = document.querySelector('.sign_modal');
-
-    toggleMenu.addEventListener('click', (event) => {
-      event.stopPropagation();
-      signModal.classList.remove("hidden");
-    })
-    
-    window.addEventListener('click', (event) => {
-      if (!signModal.classList.contains('hidden')) {
-        signModal.classList.add("hidden");
-      }
-    })
