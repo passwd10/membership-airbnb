@@ -3,11 +3,11 @@ const signModal = document.querySelector('.sign_modal');
 
 toggleMenu.addEventListener('click', (event) => {
   event.stopPropagation();
-  signModal.classList.remove("hidden");
-})
+  signModal.classList.remove('hidden');
+});
 
-window.addEventListener('click', (event) => {
+window.addEventListener('click', () => {
   if (!signModal.classList.contains('hidden')) {
-    signModal.classList.add("hidden");
+    signModal.classList.add('hidden');
   }
-})
+});

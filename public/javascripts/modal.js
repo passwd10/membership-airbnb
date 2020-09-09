@@ -10,20 +10,20 @@ $loginModal.addEventListener('click', (e) => {
 });
 
 $loginOverlay.addEventListener('click', () => {
-  $loginModal.classList.add("hidden");
+  $loginModal.classList.add('hidden');
 });
 
 if ($loginBtn) {
   $loginBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    $loginModal.classList.remove("hidden");
+    $loginModal.classList.remove('hidden');
   });
 }
 
 if ($signupBtn) {
   $signupBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    $signupModal.classList.remove("hidden");
+    $signupModal.classList.remove('hidden');
   });
 }
 
@@ -32,5 +32,5 @@ $signupModal.addEventListener('click', (e) => {
 });
 
 $signupOverlay.addEventListener('click', () => {
-  $signupModal.classList.add("hidden");
+  $signupModal.classList.add('hidden');
 });
