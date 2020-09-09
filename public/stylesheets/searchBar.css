@@ -45,6 +45,7 @@
 
 .searchContent:hover {
   color: #FF385C;
+  cursor: pointer;
 }
 
 .place, .checkin, .checkout {

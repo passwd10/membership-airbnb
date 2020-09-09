@@ -2,7 +2,7 @@
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
 
-#search_date {
+.search_date_calendar {
   position: fixed;
   display: flex;
   justify-content: center;
@@ -71,4 +71,8 @@
   outline: none;
   font-size: 20px;
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
