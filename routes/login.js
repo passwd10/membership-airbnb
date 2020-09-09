@@ -9,7 +9,7 @@ router.post('/', (req, res) => {
   return validateUser(userEmail, userPassword) ?
     res.cookie('SID', addSession(req.session, userEmail))
       .status(200)
-      .render('index', { isLogin: true })
+      .render('pages/main', { isLogin: true })
     : res.status(404).send('로그인 실패');
 });
 
@@ -18,7 +18,7 @@ router.delete('/', (req, res) => {
 
   return res.clearCookie('SID')
     .status(200)
-    .render('index', { isLogin: false });
+    .render('pages/main', { isLogin: false });
 });
 
 module.exports = router;

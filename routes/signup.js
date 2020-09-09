@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
 
   return res.cookie('SID', addSession(req.session, userEmail))
     .status(200)
-    .render('index', { isLogin: true });
+    .render('pages/main', { isLogin: true });
 });
 
 

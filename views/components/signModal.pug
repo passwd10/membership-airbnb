@@ -1,0 +1,13 @@
+ul(class="sign_modal hidden")
+  if isLogin
+    li
+      form(action="/login?_method=DELETE" method="post")
+        button(type="submit" id="logout_button") 로그아웃
+  else
+    li(id="signup_list") 회원가입
+    li(id="login_list") 로그인
+  li 숙소 호스트되기
+  li 체험 호스팅하기
+  li 도움말
+  include loginModal.pug
+  include signupModal.pug
