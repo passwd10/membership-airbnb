@@ -57,7 +57,7 @@ header > section {
 .sign_modal {
   position: absolute;
   z-index: 1;
-  top: 90px;
+  top: 50px;
   right: 200px;
   display: flex;
   background: white;
