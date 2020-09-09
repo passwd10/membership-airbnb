@@ -1,4 +1,5 @@
-const $calendar = document.querySelector('.calendar');
+const $calendarViewCheckIn = document.querySelector('.calendar_view.check_in');
+const $calendarViewCheckOut = document.querySelector('.calendar_view.check_out');
 
 const getDays = (year, month) => {
   const days = new Array(42);
@@ -58,6 +59,7 @@ const renderDateGrid = (year, month, $dateGrid, node) => {
 
     if (Number.isInteger((i + 1) / 7) && i > -1) {
       $dateGrid.appendChild($week);
+      $week.classList.add('week');
       $week = document.createElement('ul');
     }
   });
@@ -65,4 +67,5 @@ const renderDateGrid = (year, month, $dateGrid, node) => {
   return node.appendChild($dateGrid);
 };
 
-renderCalendar(2020, 9, $calendar);
+renderCalendar(2020, 9, $calendarViewCheckIn);
+renderCalendar(2020, 10, $calendarViewCheckOut);

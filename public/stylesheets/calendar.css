@@ -1,3 +1,7 @@
+* {
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+
 #search_date {
   position: fixed;
   display: flex;
@@ -6,10 +10,65 @@
   border: 1px #dddddd solid;
   border-radius: 30px;
   width: 900px;
-  height: 350px;
+  height: 340px;
   background-color: white;
 }
 
-.calendar_check {
+.month-indicator {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.calendar {
   margin: 0 10px;
+  width: 400px;
+}
+
+.day-of-week {
+  display: flex;
+  justify-content: center;
+}
+
+.day-of-week > li {
+  list-style: none;
+  width: 50px;
+  height: 40px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.week {
+  display: flex;
+  justify-content: center;
+}
+
+.week > li {
+  list-style: none;
+  font-size: 16px;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+}
+
+.before_button {
+  position: absolute;
+  top: 18px;
+  left: 60px;
+  background-color: white;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.after_button {
+  position: absolute;
+  top: 18px;
+  right: 60px;
+  background-color: white;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  cursor: pointer;
 }
