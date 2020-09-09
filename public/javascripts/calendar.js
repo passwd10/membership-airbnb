@@ -4,7 +4,7 @@ const $calendarViewCheckOut = document.querySelector('.calendar_view.check_out')
 const getDays = (year, month) => {
   const days = new Array(42);
   const startDate = new Date(year, month - 1, 1);
-  const endDate = new Date(year, month - 1, 0);
+  const endDate = new Date(year, month, 0);
   let cnt = 0;
 
   return days.fill().map((day, i) => {
