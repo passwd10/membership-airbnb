@@ -1,0 +1,15 @@
+#search_date {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 160px;
+  border: 1px #dddddd solid;
+  border-radius: 30px;
+  width: 900px;
+  height: 350px;
+  background-color: white;
+}
+
+.calendar_check {
+  margin: 0 10px;
+}
