@@ -1,5 +1,19 @@
 const $calendarViewCheckIn = document.querySelector('.calendar_view.check_in');
 const $calendarViewCheckOut = document.querySelector('.calendar_view.check_out');
+const $calendarBeforeButton = document.querySelector('.before_button');
+const $calendarAfterButton = document.querySelector('.after_button');
+
+const date = new Date();
+
+let defaultYear = date.getFullYear();
+let defaultMonth = date.getMonth() + 1;
+
+const calendarInfo = {
+  'year' : defaultYear,
+  'month' : defaultMonth,
+  'nextYear' : defaultYear === 12 ? defaultYear + 1 : defaultYear,
+  'nextMonth' : defaultMonth === 12 ? 1 : defaultMonth + 1,
+};
 
 const getDays = (year, month) => {
   const days = new Array(42);
@@ -28,6 +42,17 @@ const renderCalendar = (year, month, node) => {
   renderMonthIndicator(year, month, $monthIndicator, node);
   renderDayOfWeek($dayOfWeek, node);
   renderDateGrid(year, month, $dateGrid, node);
+};
+
+const removeAllChildNode = (node) => {
+  while(node.firstChild) {
+    node.removeChild(node.firstChild);
+  }
+};
+
+const removeCalendar = () => {
+  removeAllChildNode($calendarViewCheckIn);
+  removeAllChildNode($calendarViewCheckOut);
 };
 
 const renderMonthIndicator = (year, month, $monthIndicator, node) => {
@@ -67,5 +92,30 @@ const renderDateGrid = (year, month, $dateGrid, node) => {
   return node.appendChild($dateGrid);
 };
 
-renderCalendar(2020, 9, $calendarViewCheckIn);
-renderCalendar(2020, 10, $calendarViewCheckOut);
+const render = () => {
+  renderCalendar(calendarInfo.year, calendarInfo.month, $calendarViewCheckIn);
+  renderCalendar(calendarInfo.nextYear, calendarInfo.nextMonth, $calendarViewCheckOut);
+};
+
+const handleBeforeButton = () => {
+  $calendarBeforeButton.addEventListener('click', () => {
+    removeCalendar();
+    calendarInfo.nextYear = calendarInfo.year;
+    calendarInfo.nextMonth = calendarInfo.month;
+    calendarInfo.year = calendarInfo.month === 1 ? calendarInfo.year - 1 : calendarInfo.year;
+    calendarInfo.month = calendarInfo.month === 1 ? 12 : calendarInfo.month - 1;
+    render();
+  });
+
+  $calendarAfterButton.addEventListener('click', () => {
+    removeCalendar();
+    calendarInfo.year = calendarInfo.nextYear;
+    calendarInfo.month = calendarInfo.nextMonth;
+    calendarInfo.nextYear = calendarInfo.month === 12 ? calendarInfo.year + 1 : calendarInfo.year;
+    calendarInfo.nextMonth = calendarInfo.month === 12 ? 1 : calendarInfo.month + 1;
+    render();
+  });
+};
+
+handleBeforeButton();
+render();
