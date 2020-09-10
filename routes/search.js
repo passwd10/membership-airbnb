@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 
   const rooms = searchRooms(place);
 
-  return res.render('pages/searchResult', { rooms: rooms });
+  return res.render('pages/searchResult', { isLogin: !!req.session.getSession(req.cookies.SID), rooms: rooms });
 });
 
 module.exports = router;
