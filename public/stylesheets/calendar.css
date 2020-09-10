@@ -98,3 +98,9 @@
 .hidden {
   display: none;
 }
+
+.check_in_out {
+  background-color: tomato;
+  border-radius: 50%;
+  color: white;
+}

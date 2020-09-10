@@ -2,6 +2,8 @@ const $calendarViewCheckIn = document.querySelector('.calendar_view.check_in');
 const $calendarViewCheckOut = document.querySelector('.calendar_view.check_out');
 const $calendarBeforeButton = document.querySelector('.before_button');
 const $calendarAfterButton = document.querySelector('.after_button');
+const $searchContentCheckIn = document.querySelector('.searchContent.checkin');
+const $searchContentCheckOut = document.querySelector('.searchContent.checkout');
 
 const date = new Date();
 
@@ -9,6 +11,11 @@ const today = {
   YEAR: date.getFullYear(),
   MONTH: date.getMonth() + 1,
   DATE: date.getDate(),
+};
+
+const checkInfo = {
+  checkIn: null,
+  checkOut: null,
 };
 
 let defaultYear = date.getFullYear();
@@ -96,6 +103,9 @@ const renderDateGrid = (year, month, $dateGrid, node) => {
     if (day) {
       $day.classList.add('day',`${year}-${month}-${day}`);
     }
+    if (!$day.classList.contains('prev') && $day.classList.contains('day')) {
+      saveCheckInOut($day);
+    }
     $week.appendChild($day);
 
     if (Number.isInteger((i + 1) / 7) && i > -1) {
@@ -106,6 +116,25 @@ const renderDateGrid = (year, month, $dateGrid, node) => {
   });
 
   return node.appendChild($dateGrid);
+};
+
+const saveCheckInOut = (node) => {
+  node.addEventListener('click', (e) => {
+    node.classList.add('check_in_out');
+    if (checkInfo.checkIn && !checkInfo.checkOut) {
+      checkInfo.checkOut = e.target.classList[1];
+      const textNode = document.createTextNode(checkInfo.checkOut);
+      const $checkOutDate = $searchContentCheckOut.childNodes[1];
+      $checkOutDate.replaceChild(textNode, $checkOutDate.childNodes[0]);
+      $searchDateModal.classList.add('hidden');
+    }
+    if (!checkInfo.checkIn) {
+      checkInfo.checkIn = e.target.classList[1];
+      const textNode = document.createTextNode(checkInfo.checkIn);
+      const $checkInDate = $searchContentCheckIn.childNodes[1];
+      $checkInDate.replaceChild(textNode, $checkInDate.childNodes[0]);
+    }
+  });
 };
 
 const render = () => {
