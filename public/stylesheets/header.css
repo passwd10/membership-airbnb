@@ -25,6 +25,7 @@ header > section {
   padding: 3px;
   background: white;
   float: right;
+  cursor: pointer;
 }
 
 .toggle_menu:hover {

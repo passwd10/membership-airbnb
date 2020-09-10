@@ -1,0 +1,37 @@
+.room_image {
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+}
+
+.room_info {
+  padding: 0 20px;
+}
+
+.room_lists {
+  padding: 30px 0;
+}
+
+.room_content {
+  display: flex;
+  padding: 20px 0;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: all 0.5s;
+} 
+
+.search_result {
+  padding: 0 200px;
+}
+
+.search_result > h1 {
+  font-size: 32px;
+}
+
+.fade {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 0.5s;
+}

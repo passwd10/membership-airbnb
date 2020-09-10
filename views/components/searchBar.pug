@@ -1,4 +1,4 @@
-form(action=`/search?${place}` method='get' id='search_form')
+form(action=`/search?${place}${personnel}` method='get' id='search_form')
   div(class='searchContent place')
     h5 위치
     input(type="text" name="place" placeholder="어디로 여행가세요?")
@@ -10,7 +10,7 @@ form(action=`/search?${place}` method='get' id='search_form')
     span 날짜 추가
   div(class='searchContent personnel')
     h5 인원
-    span 게스트 추가
+    input(type="text" name="personnel" placeholder="인원을 입력해주세요")
   div
     button(type="submit" id='search_button')
       img(src='../images/find.svg')

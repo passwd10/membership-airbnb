@@ -1,12 +1,16 @@
 extends ../layout
 
 block content
-  h1= "검색결과"
-  ul
-    each room in rooms
-      li
-        h3= room.title
-        div= room.description1
-        div= room.description2
-        div= room.price
-        img(src=room.image)
+  section(class='search_result')
+    h1= `${place}의 숙소`
+    p= `${rooms.length}개의 방이 검색되었습니다.`
+    ul(class='room_lists')
+      each room in rooms
+        li(class='room_content')
+          div
+            img(lazy-load=room.image class='room_image')
+          div(class='room_info')
+            h3= room.title
+            div= room.description1
+            div= room.description2
+            div= room.price

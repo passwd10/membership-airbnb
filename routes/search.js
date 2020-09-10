@@ -4,11 +4,16 @@ const router = express.Router();
 const { searchRooms } = require('../services/searchService');
 
 router.get('/', (req, res) => {
-  const { place } = req.query;
+  const { place, personnel } = req.query;
+  const rooms = searchRooms(place, personnel);
 
-  const rooms = searchRooms(place);
-
-  return res.render('pages/searchResult', { rooms: rooms });
+  return res.render('pages/searchResult',
+    {
+      isLogin: !!req.session.getSession(req.cookies.SID),
+      rooms: rooms,
+      place: place,
+      personnel: personnel,
+    });
 });
 
 module.exports = router;
