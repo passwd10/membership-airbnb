@@ -17,7 +17,10 @@
   padding: 20px 0;
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
-}
+  opacity: 0;
+  transform: translateY(50%);
+  transition: all 0.5s;
+} 
 
 .search_result {
   padding: 0 200px;
@@ -25,4 +28,10 @@
 
 .search_result > h1 {
   font-size: 32px;
+}
+
+.fade {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 0.5s;
 }
