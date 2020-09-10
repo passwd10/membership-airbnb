@@ -69,6 +69,7 @@
   background-color: transparent;
   font-size: 14px;
   color: #717171;
+  padding: 5px 0 0 0;
 }
 
 .searchContent > input:focus{

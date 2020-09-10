@@ -1,7 +1,9 @@
 extends ../layout
 
 block content
-  h1= "검색결과"
+  h1= `${place}의 숙소`
+  p= `${rooms.length}개`
+  p= `${personnel}명`
   ul
     each room in rooms
       li
