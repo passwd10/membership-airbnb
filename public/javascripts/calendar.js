@@ -5,6 +5,12 @@ const $calendarAfterButton = document.querySelector('.after_button');
 
 const date = new Date();
 
+const today = {
+  YEAR: date.getFullYear(),
+  MONTH: date.getMonth() + 1,
+  DATE: date.getDate(),
+};
+
 let defaultYear = date.getFullYear();
 let defaultMonth = date.getMonth() + 1;
 
@@ -80,6 +86,13 @@ const renderDateGrid = (year, month, $dateGrid, node) => {
   days.forEach((day, i) => {
     const $day = document.createElement('li');
     $day.appendChild(document.createTextNode(day));
+
+    if (year < today.YEAR || month < today.MONTH) {
+      $day.classList.add('prev');
+    }
+    if (month === today.MONTH && day < today.DATE) {
+      $day.classList.add('prev');
+    }
     if (day) {
       $day.classList.add('day',`${year}-${month}-${day}`);
     }
@@ -100,7 +113,7 @@ const render = () => {
   renderCalendar(calendarInfo.nextYear, calendarInfo.nextMonth, $calendarViewCheckOut);
 };
 
-const handleBeforeButton = () => {
+const handlePrviousNextButton = () => {
   $calendarBeforeButton.addEventListener('click', () => {
     removeCalendar();
     calendarInfo.nextYear = calendarInfo.year;
@@ -120,5 +133,5 @@ const handleBeforeButton = () => {
   });
 };
 
-handleBeforeButton();
+handlePrviousNextButton();
 render();

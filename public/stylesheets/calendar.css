@@ -63,6 +63,16 @@
   color: white;
 }
 
+.prev {
+  cursor: auto;
+  color: #dddddd;
+}
+
+.prev:hover {
+  background-color: white;
+  color: #dddddd;
+}
+
 .before_button {
   position: absolute;
   top: 18px;
