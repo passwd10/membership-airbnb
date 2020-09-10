@@ -120,21 +120,30 @@ const renderDateGrid = (year, month, $dateGrid, node) => {
 
 const saveCheckInOut = (node) => {
   node.addEventListener('click', (e) => {
-    node.classList.add('check_in_out');
-    if (checkInfo.checkIn && !checkInfo.checkOut) {
-      checkInfo.checkOut = e.target.classList[1];
-      const textNode = document.createTextNode(checkInfo.checkOut);
-      const $checkOutDate = $searchContentCheckOut.childNodes[1];
-      $checkOutDate.replaceChild(textNode, $checkOutDate.childNodes[0]);
-      $searchDateModal.classList.add('hidden');
+    if (checkInfo.checkIn) {
+      document.querySelector('.check.out') &&
+        document.querySelector('.check.out').classList.remove('check','out');
+      node.classList.add('check', 'out');
+      return writeCheckInOut('checkOut', e);
     }
-    if (!checkInfo.checkIn) {
-      checkInfo.checkIn = e.target.classList[1];
-      const textNode = document.createTextNode(checkInfo.checkIn);
-      const $checkInDate = $searchContentCheckIn.childNodes[1];
-      $checkInDate.replaceChild(textNode, $checkInDate.childNodes[0]);
-    }
+    node.classList.add('check', 'in');
+    return writeCheckInOut('checkIn', e);
   });
+};
+
+const writeCheckInOut = (checkState, e) => {
+  if (checkState === 'checkIn') {
+    checkInfo.checkIn = e.target.classList[1];
+    const textNode = document.createTextNode(checkInfo.checkIn);
+    const $checkInDate = $searchContentCheckIn.childNodes[1];
+    $checkInDate.replaceChild(textNode, $checkInDate.childNodes[0]);
+    return;
+  }
+  checkInfo.checkOut = e.target.classList[1];
+  const textNode = document.createTextNode(checkInfo.checkOut);
+  const $checkOutDate = $searchContentCheckOut.childNodes[1];
+  $checkOutDate.replaceChild(textNode, $checkOutDate.childNodes[0]);
+  return;
 };
 
 const render = () => {
