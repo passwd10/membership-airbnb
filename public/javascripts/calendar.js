@@ -80,7 +80,9 @@ const renderDateGrid = (year, month, $dateGrid, node) => {
   days.forEach((day, i) => {
     const $day = document.createElement('li');
     $day.appendChild(document.createTextNode(day));
-    $day.classList.add(`${year}-${month}-${day}`);
+    if (day) {
+      $day.classList.add('day',`${year}-${month}-${day}`);
+    }
     $week.appendChild($day);
 
     if (Number.isInteger((i + 1) / 7) && i > -1) {
